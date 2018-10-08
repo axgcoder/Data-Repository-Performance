@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+</head>
+<style>
+ table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+
+<body>
+<nav>
+<a href="{{ url_for('updatepage') }}">Update</a> |
+<a href="{{ url_for('selectpage') }}">Select</a> |
+<a href="/js/">Delete</a> |
+<a href="{{ url_for('createpage') }}">Create</a>
+</nav>
+<h2>AKHIL GHOSH</h2>
+<h2>1001505606</h2>
+
+	<table>
+		<tr>
+	  <form method="POST" action="/upload" enctype="multipart/form-data">
+	  <div>
+           Select a file to upload:<br />
+        <input type="file" name ="inputFile" id="File1"  />
+        <p>
+        <input type="submit" id="Submit1"  value="send" />
+        <p>
+
+         </div>
+        </form>
+
+		</tr>
+	</table>
+	<br>
+	<form action="/createDB" method="post" enctype="multipart/form-data">
+    <button name="forwardBtn" type="submit">Create DB</button>
+</form>
+<br>
+	<form action="/memc" method="POST" enctype="multipart/form-data">
+    <button name="forwardBtn" type="submit">memcache</button>
+</form>
+    <br>
+    <form method="GET" action="/conditions" enctype="multipart/form-data">
+    <input type="text"   name ="where1" id="where1">
+    <select name="operator">
+  <option value="and">and</option>
+  <option value="or">or</option>
+	</select>
+    <input type="text"   name="where2">
+    <input type="submit" value="send">
+</form>
+
+  {% if totaltime %}
+ <h4>Time taken: {{totaltime }}msec</h4>{% endif %}
+    <br>
+
+    <table>
+         {% for row in data %}
+
+        {% endfor %}
+    </table>
+</body>
+</html>

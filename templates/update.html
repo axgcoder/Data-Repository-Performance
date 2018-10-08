@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>updare data</title>
+</head>
+<body>
+<form method="POST" action="/updatedata" enctype="multipart/form-data">
+    <span>Set</span>
+    <br>
+     <input type="text"   name ="setdata" id="setdata">
+    <br><br>
+    <span>Conditions</span>
+    <br><br>
+    <input type="text"   name ="where1" id="where1">
+    <select name="operator">
+  <option value="and">and</option>
+  <option value="or">or</option>
+	</select>
+    <input type="text"   name="where2">
+    <br><br>
+    <span>Memcache</span>
+    <select name="memstatus">
+  <option value="yes">yes</option>
+  <option value="no">no</option>
+	</select>
+    <input type="submit" value="send">
+</form>
+
+</body>
+</html>

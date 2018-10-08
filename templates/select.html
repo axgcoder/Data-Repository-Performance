@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select data</title>
+</head>
+<body>
+
+<form method="POST" action="/selectdata" enctype="multipart/form-data">
+
+    <span>Conditions</span>
+    <br><br>
+   <input type="text"   name ="where1" id="where1">
+
+    <select name="operator">
+  <option value="and">and</option>
+  <option value="or">or</option>
+	</select>
+    <input type="text"   name="where2" id="where2">
+    <br><br>
+    <span>Memcache</span>
+    <select name="memstatus">
+  <option value="no">no</option>
+  <option value="yes">yes</option>
+	</select>
+    <input type="submit" value="send">
+</form>
+{% if totaltime %}
+ <h4>Time taken: {{totaltime }}msec</h4>{% endif %}
+
+  <table>
+         {% for row in data %}
+        <tr>
+      <td>{{ row[3] }}</td>
+	<td>{{ row[4] }}</td>
+      <td>{{ row[14] }}</td>
+      <td>{{ row[15] }}</td>
+    </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
